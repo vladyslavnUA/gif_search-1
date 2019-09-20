@@ -2,11 +2,31 @@
 
 
 <!-- TODO: Extend 'base.html' and put content into a block 'body' to match -->
+{% extends 'base.html' %}
+{% block title %}
+    Top 10 Gif Search Generator
+{% endblock %}
+
+
+(% block content %)
+
+
 
 <!-- TODO: Make an HTML form containing a search box and a submit button to add
     the search term to the query string. The form should have a target of '/' to
+
+
     send us to the same route. -->
+    <form action='/'>
+        Which category?
+         <input type="text" name="search"></input>
+         <button type="submit">Search</button>
+     </form>
 
-<!-- TODO: Make a for loop to loop over GIFs passed in from the server -->
 
+{% for gif in gif_list %}
+    <li>{% include 'gif.html' %}</li>
+{% endfor %}
+{% endblock %}
+</ul>
 <!-- TODO: For each gif, include the 'gif.html' template to display it -->
